@@ -1,0 +1,1471 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Mai Hồng Hạnh - Chuyên viên Tiếp thị Truyền thông (Vietravel Airlines)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-yellow: #FFB800;
+            --primary-blue: #0A2540;
+            --accent-blue: #0056b3;
+            --bg-light: #F8F9FA;
+            --text-dark: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-yellow);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 500;
+            transition: color 0.3s;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-yellow);
+            border-bottom: 2px solid var(--primary-yellow);
+            padding-bottom: 4px;
+        }
+
+        /* Responsive Mobile Navigation */
+        @media (max-width: 992px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 15px 20px;
+            }
+            nav {
+                width: 100%;
+                overflow-x: auto;
+                padding-top: 10px;
+                padding-bottom: 5px;
+                -webkit-overflow-scrolling: touch;
+            }
+            nav a {
+                margin-left: 0;
+                margin-right: 15px;
+            }
+            nav::-webkit-scrollbar {
+                height: 3px;
+            }
+            nav::-webkit-scrollbar-thumb {
+                background: var(--primary-yellow);
+                border-radius: 3px;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #1e3c72 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary-yellow);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 38px;
+            margin-bottom: 10px;
+            color: var(--primary-yellow);
+        }
+
+        .hero .subtitle {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 16px;
+            max-width: 800px;
+            margin: 0 auto 25px;
+            opacity: 0.95;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-yellow);
+            color: var(--primary-blue);
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.3s, background-color 0.3s;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #ffa000;
+            transform: translateY(-3px);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .tab-content {
+            display: none;
+            background: white;
+            padding: 35px;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .tab-content h2 {
+            color: var(--primary-blue);
+            border-bottom: 3px solid var(--primary-yellow);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+
+        /* About & Highlights */
+        .highlight-list {
+            margin-top: 15px;
+            padding-left: 20px;
+        }
+
+        .highlight-list li {
+            margin-bottom: 8px;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: var(--bg-light);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-yellow);
+        }
+
+        .skill-card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        /* Experience & Projects */
+        .project-item {
+            margin-bottom: 25px;
+            border-bottom: 1px dashed #ddd;
+            padding-bottom: 20px;
+            width: 100%; 
+            clear: both; 
+        }
+
+        .project-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .project-item h3 {
+            color: var(--accent-blue);
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .project-item span {
+            font-size: 14px;
+            color: #666;
+            font-style: italic;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .project-item ul {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+
+        .project-item ul li {
+            margin-bottom: 15px;
+            word-break: break-word;
+            clear: both;
+        }
+
+        /* Contact Details Grid */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-blue);
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        /* Dynamic Image Galleries Styles */
+        .fanpage-single-img {
+            width: 100%;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        .fanpage-single-img img {
+            width: 100%;
+            aspect-ratio: 21 / 9;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 8px;
+            display: block;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        }
+
+        .article-gallery-5 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 10px;
+            width: 100%;
+            margin-top: 12px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+
+        .article-gallery-5 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 8px;
+            display: block;
+        }
+
+        .article-gallery-5 .img-tall-left {
+            grid-column: 1;
+            grid-row: 1 / span 2;
+        }
+
+        .article-gallery-5 .img-sq {
+            aspect-ratio: 1 / 1;
+        }
+
+        .redner-content-gallery-12 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            width: 100%;
+            margin-top: 12px;
+            margin-bottom: 25px;
+            box-sizing: border-box;
+        }
+
+        .redner-content-gallery-12 img {
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            object-fit: contain;
+            object-position: center;
+            background-color: #f8f9fa;
+            border-radius: 6px;
+            display: block;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        }
+
+        .vat-gallery-5 {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            width: 100%;
+            max-width: 100%;
+            height: 480px;
+            margin-top: 12px;
+            margin-bottom: 25px;
+            box-sizing: border-box;
+            overflow: hidden;
+            clear: both;
+        }
+
+        .vat-gallery-5 > img,
+        .vat-gallery-5 .vat-col {
+            flex: 1 1 0;
+            min-width: 0;
+            max-width: 33.33%;
+            height: 100%;
+            box-sizing: border-box;
+        }
+
+        .vat-gallery-5 > img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: top left;
+            background-color: #ffffff;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        }
+
+        .vat-gallery-5 .vat-col {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .vat-col-equal img {
+            width: 100%;
+            height: calc(50% - 5px);
+            object-fit: contain;
+            object-position: top center;
+            background-color: #ffffff;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        }
+
+        .vat-col-custom .img-2-3 {
+            width: 100%;
+            height: calc(60% - 5px);
+            object-fit: cover;
+            object-position: top center;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        }
+
+        .vat-col-custom .img-1-3 {
+            width: 100%;
+            height: calc(40% - 5px);
+            object-fit: cover;
+            object-position: top center;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        }
+
+        .vsa-gallery-container {
+            width: 100%;
+            max-width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 12px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+
+        .vsa-block-1 {
+            display: grid;
+            grid-template-columns: 40% calc(60% - 10px);
+            gap: 10px;
+            width: 100%;
+            align-items: stretch;
+            box-sizing: border-box;
+        }
+
+        .vsa-block-1 .vsa-stack-right {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .vsa-block-1 .vsa-stack-right img {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        }
+
+        .vsa-block-1 .vsa-tall-left {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        }
+
+        .vsa-block-2 {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .vsa-block-2 img {
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            object-fit: cover;
+            object-position: top;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        }
+
+        .nang-gallery-8 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            width: 100%;
+            max-width: 100%;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+
+        .nang-gallery-8 img {
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            object-fit: cover;
+            object-position: top;
+            border-radius: 6px;
+            display: block;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        }
+
+        .nang-gallery-8 img:first-child {
+            object-position: 60% top;
+        }
+
+        .mandeok-gallery-8 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            width: 100%;
+            margin-top: 15px;
+            margin-bottom: 25px;
+            box-sizing: border-box;
+        }
+
+        .mandeok-gallery-8 img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            border-radius: 6px;
+            display: block;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        }
+
+        .soulmate-gallery-8 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            width: 100%;
+            max-width: 100%;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+
+        .soulmate-col {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            min-width: 0;
+        }
+
+        .soulmate-col img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+            border-radius: 6px;
+            display: block;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        }
+
+        .image-gallery { 
+            display: flex !important; 
+            gap: 10px; 
+            margin: 12px 0; 
+            width: 100%; 
+        }
+        
+        .image-gallery img { 
+            flex: 1 !important; 
+            min-width: 0 !important; 
+            width: 100% !important;
+            aspect-ratio: 16 / 9 !important; 
+            height: auto !important; 
+            object-fit: cover !important; 
+            object-position: center !important;
+            border-radius: 8px; 
+        }
+
+        .image-gallery-3 {
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            grid-template-rows: repeat(2, 220px); 
+            gap: 10px; 
+            margin: 12px 0; 
+            width: 100%; 
+            box-sizing: border-box; 
+            overflow: hidden;
+        }
+        
+        .image-gallery-3 img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            border-radius: 8px; 
+            display: block; 
+        }
+        
+        .image-gallery-3 img.img-tall { 
+            grid-row: 1 / span 2; 
+            height: 450px; 
+        }
+
+        .image-gallery-3-reverse {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: repeat(2, 220px);
+            gap: 10px;
+            margin: 12px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .image-gallery-3-reverse img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            border-radius: 8px; 
+            display: block; 
+        }
+        
+        .image-gallery-3-reverse img.img-tall { 
+            grid-column: 2; 
+            grid-row: 1 / span 2; 
+            height: 450px; 
+        }
+
+        .bento-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: repeat(2, 1fr);
+            gap: 10px;
+            width: 100%;
+            max-width: 100%;
+            aspect-ratio: 16 / 9; 
+            margin: 15px 0 25px 0;
+            box-sizing: border-box;
+            clear: both;
+        }
+
+        .bento-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            border-radius: 8px;
+            display: block;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .bento-box .img-left { grid-column: 1 / span 2; grid-row: 1 / span 2; }
+        .bento-box .img-top-right { grid-column: 3 / span 2; grid-row: 1; }
+        .bento-box .img-bottom-1 { grid-column: 3; grid-row: 2; }
+        .bento-box .img-bottom-2 { grid-column: 4; grid-row: 2; }
+
+        .career-fair-gallery {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 10px;
+            width: 100%;
+            margin: 15px 0 25px 0;
+            box-sizing: border-box;
+            clear: both;
+        }
+
+        .career-fair-gallery img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            display: block;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .career-fair-gallery .img-row1 {
+            grid-column: span 6;
+            height: 300px;
+            object-position: center;
+        }
+
+        .career-fair-gallery .img-row2 {
+            grid-column: span 3;
+            height: 200px;
+            object-position: center;
+        }
+
+        .career-fair-gallery .img-row3 {
+            grid-column: span 2;
+            height: 315px;
+            object-position: top;
+        }
+
+        .amb-grid { 
+            display: grid; 
+            gap: 8px; 
+            margin: 12px 0 20px 0; 
+            width: 100%; 
+            border-radius: 8px; 
+            overflow: hidden; 
+        }
+
+        .amb-grid img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            border-radius: 4px; 
+            display: block; 
+        }
+
+        .amb-grid .sub-col { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 8px; 
+            height: 100%; 
+        }
+
+        .amb-grid-1 { grid-template-columns: 1fr 1fr; }
+        .amb-grid-1 .img-wide { 
+            grid-column: span 2; 
+            aspect-ratio: 32 / 9; 
+            object-fit: cover; 
+            object-position: center 55%; 
+        }
+        .amb-grid-1 img:not(.img-wide) { 
+            aspect-ratio: 16 / 9; 
+            object-fit: cover; 
+            object-position: center; 
+        }
+
+        .amb-grid-2 { grid-template-columns: 1fr 1fr; gap: 8px; }
+        .amb-grid-2 .cum-1 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .amb-grid-2 .cum-1 .img-tall-main { height: 100%; aspect-ratio: 3/4; }
+        .amb-grid-2 .cum-1 .sub-col img { flex: 1; aspect-ratio: 16/9; }
+
+        .amb-grid-2 .cum-2 { display: flex; flex-direction: column; gap: 8px; }
+        .amb-grid-2 .cum-2 .row-top { display: grid; grid-template-columns: 2fr 1fr; gap: 8px; flex: 1; }
+        .amb-grid-2 .cum-2 .row-bottom { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; flex: 1.5; }
+        .amb-grid-2 .cum-2 .sub-sq-col img { flex: 1; aspect-ratio: 1/1; }
+
+        .promo-gallery-7 {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 10px;
+            width: 100%;
+            margin: 12px 0 20px 0;
+            box-sizing: border-box;
+        }
+
+        .promo-grid-6 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: repeat(3, 1fr);
+            gap: 10px;
+            height: 100%;
+        }
+
+        .promo-grid-6 img {
+            width: 100%;
+            height: 100%;
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
+            border-radius: 8px;
+            display: block;
+        }
+
+        .promo-tall-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            display: block;
+        }
+
+        .debate-gallery {
+            display: flex;
+            gap: 12px;
+            margin-top: 10px;
+            margin-bottom: 16px;
+            width: 100%;
+            box-sizing: border-box;
+            align-items: center;
+        }
+
+        .debate-gallery .img-box {
+            height: 280px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        }
+
+        .debate-gallery .img-top {
+            flex: 1.7;
+            background-color: transparent;
+        }
+
+        .debate-gallery .img-top img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
+        .debate-gallery .img-bottom {
+            flex: 1;                     
+        }
+
+        .debate-gallery .img-box:nth-child(2) {
+            background-color: #7a0008;   
+        }
+
+        .debate-gallery .img-box:nth-child(3) {
+            background-color: #ffffff;   
+        }
+
+        .debate-gallery .img-bottom img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .redner-gallery-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;                            
+            width: 100%;                          
+            box-sizing: border-box;
+            margin-top: 10px;
+            margin-bottom: 16px;
+        }
+
+        .redner-gallery-3 img {
+            width: 100%;
+            aspect-ratio: 1 / 1;                  
+            object-fit: cover;                    
+            object-position: center;
+            border-radius: 8px;                   
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            display: block;
+        }
+
+        .president-gallery-container {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+            margin-top: 12px;
+            margin-bottom: 16px;
+        }
+
+        .pres-block {
+            display: grid;
+            gap: 12px;
+            height: 480px; 
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .pres-block-1 {
+            grid-template-columns: 45% calc(55% - 12px);
+        }
+
+        .pres-block-2 {
+            grid-template-columns: calc(55% - 12px) 45%;
+        }
+
+        .stacked-images {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            height: 480px; 
+            width: 100%;
+            min-width: 0;
+            box-sizing: border-box;
+        }
+
+        .stacked-images img {
+            width: 100%;
+            height: 153px; 
+            object-fit: cover;
+            object-position: center;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            display: block;
+        }
+
+        .single-tall-img {
+            width: 100%;
+            height: 480px; 
+            object-fit: cover;
+            object-position: center;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            display: block;
+        }
+
+        /* Global Mobile Responsiveness Rules */
+        @media (max-width: 768px) {
+            .article-gallery-5 { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+            .article-gallery-5 .img-tall-left { grid-column: span 2; aspect-ratio: 16 / 9; }
+            .redner-content-gallery-12 { grid-template-columns: repeat(2, 1fr); }
+            .vat-gallery-5 { flex-direction: column; height: auto; }
+            .vat-gallery-5 > img, .vat-gallery-5 .vat-col { max-width: 100%; height: 300px; }
+            .vsa-block-1 { grid-template-columns: 1fr; }
+            .vsa-block-1 .vsa-tall-left { height: auto; aspect-ratio: 3 / 4; }
+            .vsa-block-2 { grid-template-columns: repeat(2, 1fr); }
+            .nang-gallery-8, .mandeok-gallery-8, .soulmate-gallery-8 { grid-template-columns: repeat(2, 1fr); }
+            .image-gallery { flex-direction: column !important; }
+            .image-gallery img { height: auto !important; aspect-ratio: 16/9 !important; }
+            .image-gallery-3, .image-gallery-3-reverse { display: flex; flex-direction: column; height: auto; }
+            .image-gallery-3 img, .image-gallery-3-reverse img { height: 180px; }
+            .bento-box { aspect-ratio: auto; height: 300px; }
+            .career-fair-gallery { grid-template-columns: 1fr; }
+            .career-fair-gallery .img-row1, .career-fair-gallery .img-row2, .career-fair-gallery .img-row3 { grid-column: span 1; height: 200px; }
+            .amb-grid { grid-template-columns: 1fr !important; gap: 6px; }
+            .amb-grid-2 .cum-1, .amb-grid-2 .cum-2 .row-top, .amb-grid-2 .cum-2 .row-bottom, .promo-gallery-7, .promo-grid-6 { display: grid !important; grid-template-columns: repeat(2, 1fr) !important; gap: 6px !important; }
+            .amb-grid .sub-col { display: contents !important; }
+            .amb-grid img { aspect-ratio: 4/3 !important; height: auto !important; }
+            .amb-grid-1 .img-wide { grid-column: span 2 !important; aspect-ratio: 16/9 !important; }
+            .amb-grid-1 img:not(.img-wide) { aspect-ratio: 1/1 !important; }
+            .amb-grid-2 .cum-1 .img-tall-main { grid-column: span 2 !important; aspect-ratio: 16/9 !important; }
+            .debate-gallery { flex-direction: column; }
+            .debate-gallery .img-box { width: 100%; height: 220px; }
+            .redner-gallery-3 { grid-template-columns: 1fr; gap: 10px; }
+            .pres-block { grid-template-columns: 1fr; height: auto; }
+            .single-tall-img { height: 250px; }
+            .stacked-images img { height: 120px; flex: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">VIETRAVEL AIRLINES | PORTFOLIO</div>
+        <nav>
+            <a class="nav-link active" onclick="openTab(event, 'about')">Giới thiệu</a>
+            <a class="nav-link" onclick="openTab(event, 'education')">Học vấn</a>
+            <a class="nav-link" onclick="openTab(event, 'skills')">Kỹ năng</a>
+            <a class="nav-link" onclick="openTab(event, 'languages-tools')">Ngoại ngữ & Công cụ</a>
+            <a class="nav-link" onclick="openTab(event, 'experience')">Kinh nghiệm Truyền thông & Sự kiện</a>
+            <a class="nav-link" onclick="openTab(event, 'others')">Kinh nghiệm khác</a>
+            <a class="nav-link" onclick="openTab(event, 'contact')">Liên hệ</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" style="margin:0; border-radius:0;">
+        <img src="images/avatar.jpg" alt="Mai Hồng Hạnh" class="profile-img">
+        
+        <h1>MAI HỒNG HẠNH</h1>
+        <div class="subtitle">Ứng viên Chuyên viên Tiếp thị Truyền thông (Marketing Communications Executive)</div>
+        <p>Đam mê Truyền thông, yêu thích sáng tạo và kết nối, sẵn sàng học hỏi và thử sức trong lĩnh vực Marketing Communications để biến ý tưởng thành nội dung và trải nghiệm có giá trị.</p>
+        <a class="btn" onclick="openTab(null, 'contact')">Kết nối với tôi</a>
+    </section>
+
+    <div class="container">
+        <!-- About Section -->
+        <section id="about" class="tab-content active">
+            <h2>Giới thiệu</h2>
+            <p>Tốt nghiệp <strong>Cử nhân Quản trị Kinh doanh</strong> tại Trường Đại học Việt – Đức (VGU), với chương trình đào tạo 100% bằng tiếng Anh. Sở hữu thế mạnh về ngôn ngữ, viết lách và truyền thông, được xây dựng từ nền tảng <strong>Chuyên Văn</strong> tại Trường THPT Chuyên Thái Nguyên cùng nhiều giải thưởng cấp Tỉnh.</p>
+            <br>
+            <p>Trong nhiều năm hoạt động học thuật, ngoại khóa và truyền thông, đã có cơ hội đảm nhiệm nhiều vai trò khác nhau, từ <strong>Chủ nhiệm Câu lạc bộ</strong>, <strong>Phó Chủ nhiệm Câu lạc bộ</strong>, <strong>Trưởng ban Sự kiện</strong>, <strong>Trưởng ban Biên tập</strong>, <strong>Cộng tác viên Truyền thông</strong>, đến <strong>MC Song ngữ</strong> cho các chương trình và sự kiện tại TP. Hồ Chí Minh và Hà Nội.</p>
+            <br>
+            <p>Định hướng phát triển trong lĩnh vực <strong>Truyền thông</strong>, <strong>Sự kiện</strong>, và <strong>Thương hiệu</strong>, nơi có thể kết hợp tư duy quản trị và khả năng sáng tạo, giao tiếp để tạo nên những nội dung và trải nghiệm ấn tượng, chất lượng và chỉn chu.</p>
+        </section>
+
+        <!-- Education & Achievements -->
+        <section id="education" class="tab-content">
+            <h2>Học vấn</h2>
+            <div class="project-item">
+                <h3>Trường Đại học Việt Đức (VGU) — Chuyên ngành Quản trị Kinh doanh (2022 – 2026)</h3>
+                <span>(Chương trình giảng dạy 100% bằng Tiếng Anh)</span>
+                <ul class="highlight-list">
+                    <li><strong>Đạt Học bổng Merit 100%:</strong> Top 5% sinh viên có điểm xét tuyển đầu vào cao nhất (2022 – 2023).</li>
+                    <li><strong>Đạt Học bổng Merit 25%:</strong> Top 20% sinh viên sinh viên có GPA cao nhất 3 năm học liên tiếp (2023 – 2024); (2024 - 2025) ; (2025 - 2026).</li>
+                    <li><strong>GPA:</strong> 1.9 / 1.0 (Thang Đức) ~ 3.4 / 4.0.</li>
+                    <li><strong>Tốt nghiệp loại:</strong> Giỏi.</li>
+                </ul>
+            </div>
+            <div class="project-item">
+                <h3>Trường THPT Chuyên Thái Nguyên — Chuyên Ngữ Văn (2019 – 2022)</h3>
+                <ul class="highlight-list">
+                    <li><strong>Thủ khoa đầu vào 2019:</strong> Toán: 9.5; Tiếng Anh: 9.2; Ngữ Văn (Cơ bản): 9.0; Ngữ Văn (Chuyên): 8.0.</li>
+                    <li><strong>Đạt Giải Nhì Cuộc thi chọn HSG Ngữ Văn cấp Tỉnh:</strong> Lớp 10 (2019 - 2020); Lớp 11 (2020- 2021); Lớp 11 vượt cấp Lớp 12 (2020 - 2021).</li>
+                    <li><strong>Đạt Giải Ba Cuộc thi chọn HSG Ngữ Văn cấp Tỉnh:</strong> Lớp 12 (2021 - 2022).</li>
+                    <li><strong>Điểm thi THPT Quốc Gia 2022 (Khối D01):</strong> 27.0 / 30.0 | Tiếng Anh: 9.6; Ngữ Văn: 9.0; Toán: 8.4.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="tab-content">
+            <h2>Kỹ năng</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Lên ý tưởng & Viết content</h3>
+                    <p>Xây dựng nội dung bài viết, update tin tức, dịch tin tức, viết tản văn, viết báo.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Quản lý Fanpage & Blog</h3>
+                    <p>Định hướng, điều hành, lên kế hoạch truyền thông cho nhiều page & blog trên Facebook và Instagram.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Biên Phiên dịch Song ngữ</h3>
+                    <p>Dịch thuật Song ngữ (Anh - Việt) cho nhiều dự án Review Phim, phim dài tập và show truyền hình thực tế.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Dạy & Trợ giảng Tiếng Anh</h3>
+                    <p>Trực tiếp đứng lớp, dạy online, hỗ trợ giảng dạy môn Tiếng Anh cho học sinh từ Lớp 2 đến Lớp 10.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Tổ chức Sự kiện</h3>
+                    <p>Lên kế hoạch, phân công nhiệm vụ, điều hành hoạt động sự kiện; dẫn chương trình tại nhiều sự kiện lớn.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Tranh biện</h3>
+                    <p>Tư duy phản biện và khả năng lập luận chặt chẽ; từng Vô địch giải Tranh biện và là Chủ nhiệm CLB Tranh biện.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tools & Languages Section -->
+        <section id="languages-tools" class="tab-content">
+            <h2>Ngoại ngữ & Công cụ</h2>
+            <div class="project-item">
+                <h3>Ngoại ngữ</h3>
+                <ul class="highlight-list">
+                    <li><strong>English:</strong> IELTS – 6.5</li>
+                    <li><strong>German:</strong> A2.2</li>
+                </ul>
+            </div>
+            <div class="project-item">
+                <h3>Công cụ</h3>
+                <ul class="highlight-list">
+                    <li><strong>Microsoft Office:</strong> Word, Excel, PowerPoint.</li>
+                    <li><strong>Design & Editing:</strong> Canva, CapCut.</li>
+                    <li><strong>AI tools:</strong> Chat GPT, Gemini, NotebookLM.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="tab-content">
+            <h2>Kinh nghiệm Truyền thông & Sự kiện</h2>
+            
+            <div class="project-item">
+                <h3>Quản trị Fanpage & Blog</h3>
+                <ul>
+                    <li>
+                        <strong>Redner – VGU Debate Club</strong>
+                        <i>(<a href="https://www.facebook.com/vgudebate" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">Link</a>)</i>
+                        <div class="fanpage-single-img">
+                            <img src="images/Admin 1.jpg" alt="Redner – VGU Debate Club">
+                        </div>
+                    </li>
+                    <li>
+                        <strong>VAT – VGU Ambassador Team</strong>
+                        <i>(<a href="https://www.facebook.com/vgu.ambassador" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">Link</a>)</i>
+                        <div class="fanpage-single-img">
+                            <img src="images/Admin 2.jpg" alt="VAT – VGU Ambassador Team">
+                        </div>
+                    </li>
+                    <li>
+                        <strong>Soulmate – bangtan memories</strong>
+                        <i>(<a href="https://www.facebook.com/soulmateuniverse" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">Link</a>)</i>
+                        <div class="fanpage-single-img">
+                            <img src="images/Admin 3.jpg" alt="Soulmate – bangtan memories">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="project-item">
+                <h3>Lên ý tưởng & Viết content</h3>
+                <ul>
+                    <li>
+                        <strong>Redner – VGU Debate Club</strong> <i>(<a href="https://www.facebook.com/vgudebate" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">Link</a>)</i>
+                        <div class="redner-content-gallery-12">
+                            <img src="images/red 2.jpg" alt="Redner Content 1">
+                            <img src="images/red 4.jpg" alt="Redner Content 2">
+                            <img src="images/red 3.jpg" alt="Redner Content 3">
+                            <img src="images/red 5.jpg" alt="Redner Content 4">
+                            <img src="images/red 6.jpg" alt="Redner Content 5">
+                            <img src="images/red 7.jpg" alt="Redner Content 6">
+                            <img src="images/red 8.jpg" alt="Redner Content 7">
+                            <img src="images/red 9.jpg" alt="Redner Content 8">
+                            <img src="images/red 10.jpg" alt="Redner Content 9">
+                            <img src="images/red 11.jpg" alt="Redner Content 10">
+                            <img src="images/red 12.jpg" alt="Redner Content 11">
+                            <img src="images/red 13.jpg" alt="Redner Content 12">
+                        </div>
+                        <p style="text-align: center; font-style: italic; margin-top: 8px;">(Hình ảnh content tự viết & hoạt động tương tác truyền thông với Redner)</p>
+                    </li>
+                    <li>
+                        <strong>VAT – VGU Ambassador Team</strong> <i>(<a href="https://www.facebook.com/vgu.ambassador" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">Link</a>)</i>
+                        <div class="vat-gallery-5">
+                            <img src="images/vat 1.jpg" alt="VAT 1">
+                            <div class="vat-col vat-col-equal">
+                                <img src="images/vat 2.jpg" alt="VAT 2">
+                                <img src="images/VAT 3.jpg" alt="VAT 3">
+                            </div>
+                            <div class="vat-col vat-col-custom">
+                                <img src="images/VAT 4.jpg" class="img-2-3" alt="VAT 4 (2/3)">
+                                <img src="images/VAT 5.jpg" class="img-1-3" alt="VAT 5 (1/3)">
+                            </div>
+                        </div>
+                        <p style="text-align: center; font-style: italic; margin-top: 8px;">(Hình ảnh content tự viết & hoạt động tương tác truyền thông với VAT)</p>
+                    </li>
+                    <li>
+                        <strong>VGU Student Association – VSA – Hội Sinh Viên Trường ĐH Việt Đức</strong> <i>(<a href="https://www.facebook.com/vgu.vsa" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">Link</a>)</i>
+                        <div class="vsa-gallery-container">
+                            <div class="vsa-block-1">
+                                <img src="images/VSA 1.jpg" class="vsa-tall-left" alt="VSA Post 1">
+                                <div class="vsa-stack-right">
+                                    <img src="images/VSA 2.jpg" alt="VSA Post 2">
+                                    <img src="images/VSA 3.jpg" alt="VSA Post 3">
+                                </div>
+                            </div>
+                            <div class="vsa-block-2">
+                                <img src="images/VSA 4.jpg" alt="VSA Post 4">
+                                <img src="images/VSA 6.jpg" alt="VSA Post 5">
+                                <img src="images/VSA 7.jpg" alt="VSA Post 6">
+                                <img src="images/VSA 8.jpg" alt="VSA Post 7">
+                                <img src="images/VSA 9.jpg" alt="VSA Post 8">
+                            </div>
+                            <p style="text-align: center; font-style: italic; margin-top: 8px;">(Hình ảnh content tự viết & hoạt động tương tác truyền thông với VSA)</p>
+                        </div>
+                    </li>
+                    <li>
+                        <strong>CLB Nắng Chuyên Thái Nguyên</strong> <i>(<a href="https://www.facebook.com/clbnangctn" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">Link</a>)</i>
+                        <div class="nang-gallery-8">
+                            <img src="images/Nắng 1.jpg" alt="CLB Nắng Content 1">
+                            <img src="images/Nắng 3.jpg" alt="CLB Nắng Content 2">
+                            <img src="images/Nắng 4.jpg" alt="CLB Nắng Content 3">
+                            <img src="images/Nắng 5.jpg" alt="CLB Nắng Content 4">
+                            <img src="images/Nắng 6.jpg" alt="CLB Nắng Content 5">
+                            <img src="images/Nắng 7.jpg" alt="CLB Nắng Content 6">
+                            <img src="images/Nắng 8.jpg" alt="CLB Nắng Content 7">
+                            <img src="images/Nắng 2.jpg" alt="CLB Nắng Content 8">
+                        </div>
+                        <p style="text-align: center; font-style: italic; margin-top: 8px;">(Hình ảnh hoạt động truyền thông với Nắng)</p>
+                    </li>
+                    <li>
+                        <strong>September Fall In Mandeok-dong</strong> <i>(<a href="https://www.facebook.com/SepFIM" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">Link</a>)</i>
+                        <div class="mandeok-gallery-8">
+                            <img src="images/Sep 1.jpg" alt="September Fall In Mandeok-dong 1">
+                            <img src="images/Sep 2.jpg" alt="September Fall In Mandeok-dong 2">
+                            <img src="images/Sep 4.jpg" alt="September Fall In Mandeok-dong 3">
+                            <img src="images/Sep 3.jpg" alt="September Fall In Mandeok-dong 4">
+                            <img src="images/Sep 5.jpg" alt="September Fall In Mandeok-dong 5">
+                            <img src="images/Sep 6.jpg" alt="September Fall In Mandeok-dong 6">
+                            <img src="images/Sep 7.jpg" alt="September Fall In Mandeok-dong 7">
+                            <img src="images/Sep 8.jpg" alt="September Fall In Mandeok-dong 8">
+                        </div>
+                        <p style="text-align: center; font-style: italic; margin-top: 8px;">(Hình ảnh các bài post đã đăng trên Sep)</p>
+                    </li>
+                    <li>
+                        <strong>Soulmate – bangtan memories</strong> <i>(<a href="https://www.facebook.com/soulmateuniverse" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">Link</a>)</i>
+                        <div class="soulmate-gallery-8">
+                            <div class="soulmate-col">
+                                <img src="images/Soul 1.jpg" alt="Soulmate 1">
+                                <img src="images/Soul 2.jpg" alt="Soulmate 5">
+                            </div>
+                            <div class="soulmate-col">
+                                <img src="images/Soul 3.jpg" alt="Soulmate 2">
+                                <img src="images/Soul 4.jpg" alt="Soulmate 6">
+                            </div>
+                            <div class="soulmate-col">
+                                <img src="images/Soul 5.jpg" alt="Soulmate 3">
+                                <img src="images/Soul 6.jpg" alt="Soulmate 7">
+                            </div>
+                            <div class="soulmate-col">
+                                <img src="images/Soul 7.jpg" alt="Soulmate 4">
+                                <img src="images/Soul 8.jpg" alt="Soulmate 8">
+                            </div>
+                        </div>
+                        <p style="text-align: center; font-style: italic; margin-top: 8px;">(Hình ảnh content tự viết trên Soulmate)</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="project-item">
+                <h3>Viết báo</h3>
+                <ul>
+                    <li>
+                        <strong>CLB Nắng Chuyên Thái Nguyên</strong> 
+                        <i>(<a href="https://www.facebook.com/clbnangctn" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">Link</a>)</i>
+                        <div class="article-gallery-5">
+                            <img src="images/báo 6.jpg" class="img-tall-left" alt="Bài báo 1">
+                            <img src="images/báo 2.jpg" class="img-sq" alt="Bài báo 2">
+                            <img src="images/báo 3.jpg" class="img-sq" alt="Bài báo 3">
+                            <img src="images/báo 4.jpg" class="img-sq" alt="Bài báo 4">
+                            <img src="images/báo 5.jpg" class="img-sq" alt="Bài báo 5">
+                        </div>
+                    </li>
+                </ul>
+                <p style="text-align: center; font-style: italic; margin-top: 8px;">(Hình ảnh hoạt động viết báo với CLB Nắng Chuyên Thái Nguyên)</p>
+            </div>
+
+            <div class="project-item">
+                <h3>Đại sứ Sinh viên</h3>
+                <ul>
+                    <li>
+                        <strong>Biểu diễn văn nghệ</strong>
+                        <div class="amb-grid amb-grid-1">
+                            <img src="images/Amb hát 2.jpg" class="img-wide" alt="Văn nghệ 1">
+                            <img src="images/Amb hát 1.jpg" alt="Văn nghệ 2">
+                            <img src="images/Amb hát 3.jpg" alt="Văn nghệ 3">
+                        </div>
+                        <p style="text-align: center; font-style: italic; margin-top: 8px;">(Hình ảnh các hoạt động biểu diễn văn nghệ)</p>
+                    </li>
+                    <li>
+                        <strong>Dẫn Campus Tour</strong>
+                        <div class="amb-grid amb-grid-2">
+                            <div class="cum-1">
+                                <img src="images/Amb ptb.jpg" class="img-tall-main" alt="Tour 1">
+                                <div class="sub-col">
+                                    <img src="images/Amb tour 1.jpg" alt="Tour 2">
+                                    <img src="images/Amb tour 4.jpg" alt="Tour 3">
+                                    <img src="images/Amb tour 3.jpg" alt="Tour 4">
+                                    <img src="images/Amb tour 9.jpg" alt="Tour 5">
+                                </div>
+                            </div>
+                            <div class="cum-2">
+                                <div class="row-top">
+                                    <img src="images/Amb tour 6.jpg" class="img-wide-top" alt="Tour 6">
+                                    <img src="images/Amb 0.5 (1).jpg" class="img-sq-top" alt="Tour 7">
+                                </div>
+                                <div class="row-bottom">
+                                    <div class="sub-sq-col">
+                                        <img src="images/Amb event.jpg" alt="Tour 8">   
+                                        <img src="images/Amb event.jpg" alt="Tour 9">  
+                                    </div>
+                                    <img src="images/Amb tour 5.jpg" class="img-tall-right" alt="Tour 10">
+                                </div>
+                            </div>
+                        </div>
+                        <p style="text-align: center; font-style: italic; margin-top: 8px;">(Hình ảnh các hoạt động trong Campus Tour)</p>
+                    </li>
+                    <li>
+                        <strong>Mở booth VGU & tham gia các hoạt động tuyển sinh tại các trường Đại học khác</strong>
+                        <div class="image-gallery-3">
+                            <img src="images/Amb booth.jpg" class="img-tall" alt="Tuyển sinh 1">
+                            <img src="images/Amb VinUni.jpg" alt="Tuyển sinh 2">
+                            <img src="images/Amb booth rmit.jpg" alt="Tuyển sinh 3">
+                        </div>
+                        <p style="text-align: center; font-style: italic; margin-top: 8px;">(Hình ảnh tham gia các hoạt động tuyển sinh của VGU tại BKU, RMIT, VinUni)</p>
+                    </li>
+                    <li>
+                        <strong>Chụp Ấn phẩm Truyền thông quảng bá hình ảnh trường</strong>
+                        <div class="promo-gallery-7">
+                            <div class="promo-grid-6">
+                                <img src="images/Amb chụp 1m.jpg" alt="Quảng bá 1">
+                                <img src="images/Amb chụp 4.jpg" alt="Quảng bá 2">
+                                <img src="images/Amb chụp 8.jpg" alt="Quảng bá 3">
+                                <img src="images/Amb chụp 2.jpg" alt="Quảng bá 4">
+                                <img src="images/Amb chụp 1.jpg" alt="Quảng bá 5">
+                                <img src="images/Amb chụp 10.jpg" alt="Quảng bá 6">
+                            </div>
+                            <img src="images/Amb lên page trường.jpg" class="promo-tall-img" alt="Quảng bá 7">
+                        </div>
+                        <p style="text-align: center; font-style: italic; margin-top: 8px;">(Hình ảnh các ấn phẩm truyền thông đã chụp cho VGU)</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="project-item">
+                <h3>Dẫn chương trình (MC)</h3>
+                <ul>
+                    <li>
+                        <strong>VGU Master Program Info Session (2024)</strong>
+                        <div class="image-gallery">
+                            <img src="images/MC Master HCM 1.jpg" alt="MC tại VGU Master Info Day 2024">
+                            <img src="images/MC Master HCM 2.jpg" alt="Tập thể VGU Master Info Day 2024">
+                        </div>
+                    </li>   
+                    <li>
+                        <strong>VGU Clubs Fair – Orientation Week (2024)</strong>
+                        <div class="image-gallery-3">
+                            <img src="images/Clubs fair 2024 1.jpg" class="img-tall" alt="Ảnh dọc bên trái">
+                            <img src="images/Clubs fair 2024 2.jpg" alt="Ảnh ngang trên bên phải">
+                            <img src="images/Clubs fair 2024 3.jpg" alt="Ảnh ngang dưới bên phải">
+                        </div>
+                    </li>
+                    <li>
+                        <strong>VGU Campus Tours (2022 — 2025)</strong>
+                        <div class="image-gallery">
+                            <img src="images/Vgu stem day campus tour 2.jpg" alt="MC tại VGU Master Info Day 2024"> 
+                            <img src="images/Vgu stem day campus tour 1.jpg" alt="Tập thể VGU Master Info Day 2024">
+                        </div>
+                    </li>
+                    <li>
+                        <strong>VGU Career Fair (2024)</strong>
+                        <div class="image-gallery-3-reverse">
+                            <img src="images/Career fair 2024 3.jpg" alt="VGU Career Fair 1">
+                            <img src="images/Career fair 2024 2.jpg" alt="VGU Career Fair 2">
+                            <img src="images/Career fair 2024 1.jpg" class="img-tall" alt="VGU Career Fair 3">
+                        </div>
+                    </li>
+                </ul>
+                <p style="text-align: center; font-style: italic; margin-top: 8px;">(Hình ảnh làm MC & Dẫn chương trình tại các sự kiện)</p>
+            </div>
+
+            <div class="project-item">
+                <h3>Cộng tác viên Dự án Truyền thông (MarCom)</h3>
+                <ul>
+                    <li>
+                        <strong>Ngước</strong> <i>(<a href="https://www.facebook.com/vgudebate" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">Link</a>)</i>
+                    </li>
+                </ul>
+                <div class="bento-box">
+                    <img src="images/NGƯỚC MoD Cert121.jpg" class="img-left" alt="Certificate 1">
+                    <img src="images/NGƯỚC PARTICIPANT1350.jpg" class="img-top-right" alt="Poster Ngước">
+                    <img src="images/Ngước 3.jpg" class="img-bottom-1" alt="Bài đăng 1">
+                    <img src="images/Ngước 4.jpg" class="img-bottom-2" alt="Bài đăng 2">
+                </div>
+                <p style="text-align: center; font-style: italic; margin-top: 8px;">(Hình ảnh Giấy Chứng nhận & các hoạt động truyền thông với Ngước)</p>
+                <ul>
+                    <li><strong>VGU Career Fair 2024</strong></li>
+                </ul>
+                <div class="career-fair-gallery">
+                    <img src="images/CF 6.jpg" class="img-row1" alt="VGU Career Fair 2024 - Ảnh tập thể">
+                    <img src="images/CF 5.jpg" class="img-row2" alt="VGU Career Fair 2024 - Hoạt động 1">
+                    <img src="images/CF 4.jpg" class="img-row2" alt="VGU Career Fair 2024 - Hoạt động 2">
+                    <img src="images/CF 1.jpg" class="img-row3" alt="VGU Career Fair 2024 - Poster 1">
+                    <img src="images/CF 2.jpg" class="img-row3" alt="VGU Career Fair 2024 - Poster 2">
+                    <img src="images/CF 3.jpg" class="img-row3" alt="VGU Career Fair 2024 - Poster 3">
+                </div>
+                <p style="text-align: center; font-style: italic; margin-top: 8px;">(Hình ảnh tại Buổi gặp mặt Tri ân & các hoạt động truyền thông với Career Fair 2024)</p>
+            </div>
+        </section>
+
+        <!-- Other Experiences -->
+        <section id="others" class="tab-content">
+            <h2>Kinh nghiệm khác</h2>
+            <div class="project-item">
+                <h3>Dạy & Trợ giảng Tiếng Anh:</h3>
+                <ul class="highlight-list">
+                    <li>
+                        <strong>Trung tâm Thái Hương:</strong> Chủ hộ Kinh doanh & Trợ giảng Tiếng Anh
+                        <ul>
+                            <li>Người đại diện theo Pháp luật cho Hộ kinh doanh của gia đình từ tháng 02/2025 - Hiện tại (không trực tiếp quản lý).</li>
+                            <li>Hỗ trợ công tác giảng dạy Tiếng Anh cho học sinh từ Lớp 3 - Lớp 9.</li>
+                            <li>Hỗ trợ các công tác Hành chính khi cần thiết.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>CLEVAI — VIỆT NAM:</strong> Giáo viên Tiếng Anh Online: Lớp 2 – Lớp 10
+                        <ul>
+                            <li>Dạy Tiếng Anh Online (vào buổi tối) cho học sinh từ Lớp 2 - Lớp 10 từ tháng 03/2025 - Hiện tại.</li>
+                        </ul>
+                        <div class="image-gallery">
+                            <img src="images/Dạy TA 1.jpg" alt="Dạy TA 1">
+                            <img src="images/Dạy TA 2.jpg" alt="Dạy TA 2">
+                        </div>
+                        <p style="text-align: center; font-style: italic; margin-top: 8px;">(Hình ảnh lớp học thực tế)</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="project-item">
+                <h3>Biên Phiên dịch Song ngữ (Anh - Việt)</h3>
+                <span>(Sử dụng phần mềm Aegisub để tạo phụ đề)</span>
+                <ul class="highlight-list">
+                    <li>
+                        <strong>Phiên dịch viên (Việt - Anh): </strong>Hơn 25 dự án Review Phim (2023 - 2024)
+                        <div class="image-gallery">
+                            <img src="images/Vie - Eng 1.jpg" alt="Review Phim 1">
+                            <img src="images/Vie - Eng 2.jpg" alt="Review Phim 2">
+                        </div>
+                    </li>
+                    <li>
+                        <strong>Phiên dịch viên (Anh - Việt): </strong>Hơn 35 bộ Phim dài tập & Show Truyền hình thực tế (2021 - 2025)
+                        <div class="image-gallery">
+                            <img src="images/Eng - Vie 1.jpg" alt="Show Truyền hình 1">
+                            <img src="images/Eng - Vie 2.jpg" alt="Show Truyền hình 2">
+                        </div>
+                        <p style="text-align: center; font-style: italic; margin-top: 8px;">(Hình ảnh giao diện tạo & dịch phụ đề từ Aegisub)</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="project-item">
+                <h3>Tranh biện</h3>
+                <ul class="highlight-list">
+                    <li>
+                        <strong>Vô địch giải Tranh biện nội bộ: </strong>CFT — CDC FLORENCE TOURNAMENT (02/2022)
+                        <div class="debate-gallery">
+                            <div class="img-box img-top">
+                                <img src="images/Vô địch debate.jpg" alt="Giấy chứng nhận vô địch CFT 2022">
+                            </div>
+                            <div class="img-box img-bottom">
+                                <img src="images/Vô địch debate 1.jpg" alt="Ảnh giải đấu 1">
+                            </div>
+                            <div class="img-box img-bottom">
+                                <img src="images/Vô địch debate 2.jpg" alt="Ảnh giải đấu 2">  
+                            </div>
+                        </div>
+                        <p style="text-align: center; font-style: italic; margin-top: 8px;">(Hình ảnh Giấy Chứng nhận & Bài đăng Facebook của CLB Tranh biện Chuyên Thái Nguyên)</p>
+                    </li>
+                    <li>
+                        <strong>Ban Chủ Nhiệm CLB Tranh biện</strong>
+                        <ul>
+                            <li>
+                                Phó Chủ Nhiệm Redner – VGU Debate Club (08/2023 - 08/2024)
+                                <div class="redner-gallery-3">
+                                    <img src="images/PCN REDNER 2.jpg" alt="Redner 1">
+                                    <img src="images/PCN REDNER 3.jpg" alt="Redner 2">
+                                    <img src="images/PCN REDNER 4.jpg" alt="Redner 3">
+                                </div>    
+                            </li>
+                            <li>
+                                Chủ Nhiệm Redner – VGU Debate Club (08/2024 - 08/2025)
+                                <div class="president-gallery-container">
+                                    <div class="pres-block pres-block-1">
+                                        <img src="images/Pre Redner 1.jpg" alt="Chủ nhiệm 1" class="single-tall-img">
+                                        <div class="stacked-images">
+                                            <img src="images/Pre Redner 0.jpg" alt="Chủ nhiệm 2">
+                                            <img src="images/Pre Redner 8.jpg" alt="Chủ nhiệm 3">
+                                            <img src="images/Pre Redner 10.jpg" alt="Chủ nhiệm 4">
+                                        </div>
+                                    </div>
+                                    <div class="pres-block pres-block-2">
+                                        <div class="stacked-images">
+                                            <img src="images/Pre Redner 4.jpg" alt="Chủ nhiệm 5">
+                                            <img src="images/Pre Redner 3.jpg" alt="Chủ nhiệm 6">
+                                            <img src="images/Pre Redner 6.jpg" alt="Chủ nhiệm 7">
+                                        </div>
+                                        <img src="images/Pre Redner 2.jpg" alt="Chủ nhiệm 8" class="single-tall-img">
+                                    </div>
+                                    <p style="text-align: center; font-style: italic; margin-top: 8px;">(Hình ảnh các hoạt động cùng CLB với vai trò Phó Chủ Nhiệm & Chủ Nhiệm)</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="tab-content">
+            <h2>Thông tin Liên hệ</h2>
+            <div class="contact-grid">
+                <div>
+                    <strong>Điện thoại:</strong>
+                    <p>(+84) 392 230 636</p>
+                </div>
+                <div>
+                    <strong>Email:</strong>
+                    <p>maihonghanh2004@gmail.com</p>
+                </div>
+                <div>
+                    <strong>Địa chỉ:</strong>
+                    <p>176, Định Công, Hoàng Mai, Hà Nội</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Mai Hồng Hạnh - Marketing Communications Executive Portfolio for Vietravel Airlines.</p>
+    </footer>
+
+    <!-- Tab Switching Script -->
+    <script>
+        function openTab(evt, tabId) {
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => content.classList.remove('active'));
+
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => link.classList.remove('active'));
+
+            const targetTab = document.getElementById(tabId);
+            if (targetTab) {
+                targetTab.classList.add('active');
+                targetTab.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+
+            if (evt) {
+                evt.currentTarget.classList.add('active');
+            } else {
+                const contactLink = Array.from(navLinks).find(link => link.getAttribute('onclick').includes(tabId));
+                if (contactLink) contactLink.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
